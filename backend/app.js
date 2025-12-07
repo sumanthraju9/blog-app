@@ -8,11 +8,14 @@ var mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-// MongoDB Atlas connection
-mongoose
-  .connect('mongodb+srv://sumanthraju8888_db_user:sumanth123@cluster0.iyc22p1.mongodb.net/blogApp?retryWrites=true&w=majority&appName=Cluster0')
-  .then(() => console.log('MongoDB Connected'))
-  .catch((err) => console.log('DB Error', err));
+
+if (!mongoose.connection.readyState) {
+  mongoose
+    .connect('mongodb+srv://sumanthraju8888_db_user:sumanth123@cluster0.iyc22p1.mongodb.net/blogApp?retryWrites=true&w=majority&appName=Cluster0')
+    .then(() => console.log('MongoDB Connected'))
+    .catch((err) => console.log('DB Error', err));
+}
+
 
 var app = express();
 
