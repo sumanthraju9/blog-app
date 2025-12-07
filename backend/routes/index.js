@@ -9,7 +9,7 @@ var jwt = require('jsonwebtoken');
 
 const secret = "secret";
 
-/* GET home page. */
+
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
